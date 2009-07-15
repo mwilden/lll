@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.name = %q{lll}
   s.version = "1.0.0"
-  s.description = "Output labeled data when debugging"
+
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Wilden"]
   s.date = %q{2009-07-15}
@@ -19,14 +19,15 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "lib/lll.rb"
+     "doc/README_rdoc.html",
+     "lib/lll.rb",
+     "lll.gemspec"
   ]
   s.homepage = %q{http://github.com/mwilden/lll}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.4}
-  s.summary = "lll(message){'expression'}"
-  s.rubyforge_project = "none"
+  s.summary = %q{Output labeled data when debugging}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
