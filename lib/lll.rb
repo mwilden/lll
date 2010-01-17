@@ -25,12 +25,11 @@ def lll msg = nil, &block
     s << " \n"
   end
 
-  color_code_for_value = "\e[7m"
-  color_code_for_location = ""
-  stop_color_code = "\e[0m"
-
-  s = color_code_for_value + s + stop_color_code
-  s << color_code_for_location + ' ' + caller.first.to_s + ' ' + Time.now.strftime('%X') + ' ' + stop_color_code
+  reverse_video_color_code = "\e[7m"
+  reset_color_code = "\e[0m"
+  
+  s = reverse_video_color_code + s + reset_color_code
+  s << caller.first.to_s + ' ' + Time.now.strftime('%X')
 
   Kernel.puts s
   Rails.logger.debug s if defined?(Rails) && Rails.logger
