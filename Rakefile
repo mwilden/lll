@@ -9,6 +9,7 @@ begin
     gem.email = "mark@mwilden.com"
     gem.homepage = "http://github.com/mwilden/lll"
     gem.authors = ["Mark Wilden"]
+    gem.description = File.read(File.join(File.dirname(__FILE__),'README.rdoc'))
   end
   Jeweler::GemcutterTasks.new
 
