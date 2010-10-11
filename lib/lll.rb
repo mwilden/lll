@@ -14,7 +14,7 @@ def lll msg = nil, &block
     expression_string = block.call
     expression_value = eval(expression_string, block)
     s << expression_string + ' = '
-    if expression_value.respond_to?(:each) && !expression_value.is_a?(String)
+    if expression_value.respond_to?(:each) && !expression_value.is_a?(String) && !expression_value.is_a?(Nokogiri::HTML::Document)
       s << " \n"
       expression_value.each { |e| s << ' ' << e.inspect << " \n" }
     else
