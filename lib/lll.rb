@@ -33,4 +33,6 @@ def lll msg = nil, &block
 
   Kernel.puts s
   Rails.logger.debug s if defined?(Rails) && Rails.logger
+
+  expression_value
 end
