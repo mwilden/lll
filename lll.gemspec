@@ -83,6 +83,7 @@ Copyright (c) 2009 Mark Wilden. See LICENSE for details.
      "VERSION",
      "doc/README_rdoc.html",
      "lib/lll.rb",
+     "lll.gemspec",
      "test/test.rb"
   ]
   s.homepage = %q{http://github.com/mwilden/lll}
