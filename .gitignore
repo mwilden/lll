@@ -1,7 +1,6 @@
+instructions
 *.sw?
 .DS_Store
 coverage
 rdoc
 pkg
-.idea
-*.gemspec
