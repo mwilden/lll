@@ -18,7 +18,7 @@ module Lll
       expression_string = block.call
       expression_value = eval(expression_string, block)
       output_string << expression_string + ' = '
-      if expression_value.respond_to?(:each) && !expression_value.is_a?(String) && !expression_value.is_a?(Nokogiri::HTML::Document)
+      if enumerable? expression_value
         output_string << " \n"
         expression_value.each { |e| output_string << ' ' << e.inspect << " \n" }
       else
@@ -39,5 +39,10 @@ module Lll
     string = output_string
     string =  "\e[7m" + string + "\e[0m" if colorize
     string + "lll: #{caller[2].to_s} #{Time.now.strftime('%X')}"
+  end
+
+  def self.enumerable? value
+    value.respond_to?(:each) && !value.is_a?(String) && !value.is_a?(Nokogiri::HTML::Document) &&
+      !value.is_a?(Nokogiri::XML::Element)
   end
 end
