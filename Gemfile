@@ -1,3 +1,7 @@
 source :rubygems
-gem 'jeweler'
+
 gem 'rake'
+
+group :development do
+  gem 'jeweler'
+end
