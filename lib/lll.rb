@@ -16,7 +16,7 @@ module Lll
     if block
       output_string << msg + ': ' if msg
       expression_string = block.call
-      expression_value = eval(expression_string, block)
+      expression_value = eval(expression_string, block.binding)
       output_string << expression_string + ' = '
       if enumerable? expression_value
         output_string << " \n"
@@ -29,7 +29,7 @@ module Lll
       output_string << " \n"
     end
 
-    Kernel.puts format(output_string, ENV['TERM'] != 'dumb')
+    $stderr.puts format(output_string, ENV['TERM'] != 'dumb')
     Rails.logger.debug(format(output_string)) if defined?(Rails) && Rails.logger
 
     expression_value
@@ -42,7 +42,10 @@ module Lll
   end
 
   def self.enumerable? value
-    value.respond_to?(:each) && !value.is_a?(String) && !value.is_a?(Nokogiri::HTML::Document) &&
-      !value.is_a?(Nokogiri::XML::Element)
+    value.respond_to?(:each) &&
+    !value.is_a?(String) &&
+    (!defined? Nokogiri ||
+     (!value.is_a?(Nokogiri::HTML::Document) &&
+      !value.is_a?(Nokogiri::XML::Element)))
   end
 end
