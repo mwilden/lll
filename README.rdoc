@@ -55,4 +55,4 @@ be useful to simply print a string without an expression:
 
 === Copyright
 
-Copyright (c) 2009 Mark Wilden. See LICENSE for details.
+Copyright (c) 2011 Mark Wilden. See LICENSE for details.
