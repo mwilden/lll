@@ -18,7 +18,9 @@ module Lll
       expression_string = block.call
       expression_value = eval(expression_string, block.binding)
       output_string << expression_string + ' = '
-      if enumerable? expression_value
+      if defined?(AwesomePrint)
+        output_string << expression_value.awesome_inspect << " \n"
+      elsif enumerable? expression_value
         output_string << " \n"
         expression_value.each { |e| output_string << ' ' << e.inspect << " \n" }
       else
