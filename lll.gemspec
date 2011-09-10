@@ -5,16 +5,16 @@
 
 Gem::Specification.new do |s|
   s.name = %q{lll}
-  s.version = "1.11.0"
+  s.version = "1.12.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Mark Wilden}]
-  s.date = %q{2011-08-26}
-  s.description = %q{= lll
+  s.date = %q{2011-09-10}
+  s.description = %q{## lll ##
 
 lll() is used in debugging to display an expression and its value.
 
-=== Motivation
+### Motivation ###
 
 One of the most basic tools in debugging is printing out the values of
 variables (or other expressions) during program execution:
@@ -34,7 +34,7 @@ The expression is passed as a string inside a block. It's useful to
 create a text editor macro that outputs <tt>lll{''}</tt> and leaves the
 cursor inside the apostrophes.
 
-=== Other benefits
+### Other benefits ###
 
 Output goes to standard output and the Rails log (if available).
 
@@ -49,7 +49,7 @@ you can easily find lll's that you forgot to take out. The time of
 day (but not the date) is also printed, so you don't waste time
 looking at old output.
 
-=== Outputting additional text
+### Outputting additional text ###
 
 Sometimes you want to include some other string, along with the label
 and value like this:
@@ -64,25 +64,18 @@ And because lll() outputs in reverse video, and to the Rails log, it can
 be useful to simply print a string without an expression:
 
     lll "After read_user"
-
-=== Copyright
-
-Copyright (c) 2011 Mark Wilden. See LICENSE for details.
 }
   s.email = %q{mark@mwilden.com}
   s.extra_rdoc_files = [
-    "LICENSE",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".document",
     "Gemfile",
     "Gemfile.lock",
-    "LICENSE",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
-    "doc/README_rdoc.html",
     "lib/lll.rb",
     "lll.gemspec",
     "test/test.rb"
