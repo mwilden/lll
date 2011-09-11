@@ -32,6 +32,8 @@ log or console.
 lll() uses #inspect to output the expression. It outputs Enumerable
 members (except strings) on separate lines.
 
+If Awesome Print is available on your system, lll() uses it.
+
 Output is tagged with the file and line number where it appears, so
 you can easily find lll's that you forgot to take out. The time of
 day (but not the date) is also printed, so you don't waste time
