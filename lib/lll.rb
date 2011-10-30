@@ -11,6 +11,7 @@ end
 
 module Lll
   def self.lll msg, block = nil
+    using_dumb_terminal = ENV['TERM'] == 'dumb'
     output_string = " "
     expression_value = 0
     if block
@@ -18,7 +19,7 @@ module Lll
       expression_string = block.call
       expression_value = eval(expression_string, block.binding)
       output_string << expression_string + ' = '
-      if defined?(AwesomePrint)
+      if defined?(AwesomePrint) && !using_dumb_terminal
         output_string << expression_value.awesome_inspect << " \n"
       elsif enumerable? expression_value
         output_string << " \n"
@@ -31,7 +32,7 @@ module Lll
       output_string << " \n"
     end
 
-    $stderr.puts format(output_string, ENV['TERM'] != 'dumb')
+    $stderr.puts format(output_string, !using_dumb_terminal)
     Rails.logger.debug(format(output_string)) if defined?(Rails) && Rails.logger
 
     expression_value
