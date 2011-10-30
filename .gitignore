@@ -5,3 +5,4 @@ coverage
 rdoc
 pkg
 how_to_build
+Gemfile.lock
