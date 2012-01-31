@@ -9,9 +9,10 @@ def lll msg = nil, &block
   Lll.lll msg, block
 end
 
+$using_dumb_terminal = ENV['TERM'] == 'dumb'
+
 module Lll
   def self.lll msg, block = nil
-    using_dumb_terminal = ENV['TERM'] == 'dumb'
     output_string = " "
     expression_value = 0
     if block
@@ -19,7 +20,7 @@ module Lll
       expression_string = block.call
       expression_value = eval(expression_string, block.binding)
       output_string << expression_string + ' = '
-      if defined?(AwesomePrint) && !using_dumb_terminal
+      if defined?(AwesomePrint) && !$using_dumb_terminal
         output_string << expression_value.awesome_inspect << " \n"
       elsif enumerable? expression_value
         output_string << " \n"
@@ -32,7 +33,7 @@ module Lll
       output_string << " \n"
     end
 
-    $stderr.puts format(output_string, !using_dumb_terminal)
+    $stderr.puts format(output_string, !$using_dumb_terminal)
     Rails.logger.debug(format(output_string)) if defined?(Rails) && Rails.logger
 
     expression_value
@@ -41,7 +42,7 @@ module Lll
   def self.format output_string, colorize = true
     string = output_string
     string =  "\e[7m" + string + "\e[0m" if colorize
-    string + "lll: #{caller[2].to_s} #{Time.now.strftime('%X')}"
+    string + "lll: #{caller[2].to_s} #{Time.now.strftime('%X')} #{$using_dumb_terminal}"
   end
 
   def self.enumerable? value
