@@ -1,4 +1,4 @@
-1.12.1
+1.13.2
 	- Fix bug preventing output on multiple lines
 	- Debug output to show when using dumb terminal
 1.12.0
