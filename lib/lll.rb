@@ -22,7 +22,7 @@ module Lll
       output_string << expression_string + ' = '
       if defined?(AwesomePrint) && !$using_dumb_terminal
         output_string << expression_value.awesome_inspect << " \n"
-      elsif enumerable? expression_value
+      elsif display_on_separate_lines? expression_value
         output_string << " \n"
         expression_value.each { |e| output_string << ' ' << e.inspect << " \n" }
       else
@@ -45,11 +45,12 @@ module Lll
     string + "lll: #{caller[2].to_s} #{Time.now.strftime('%X')} #{$using_dumb_terminal}"
   end
 
-  def self.enumerable? value
-    value.respond_to?(:each) &&
-    !value.is_a?(String) &&
-    (!defined? Nokogiri ||
-     (!value.is_a?(Nokogiri::HTML::Document) &&
-      !value.is_a?(Nokogiri::XML::Element)))
+  def self.display_on_separate_lines? value
+    value.respond_to?(:each) && !value.is_a?(String) && !nokogiri?(value)
+  end
+
+  def self.nokogiri? value
+    return false unless defined? Nokogiri
+    return value.is_a?(Nokogiri::HTML::Document) || value.is_a?(Nokogiri::XML::Element)
   end
 end
