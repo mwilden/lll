@@ -1,3 +1,5 @@
+1.32.3
+	- Remove dependency on lll that Jeweler added
 1.13.2
 	- Fix bug preventing output on multiple lines
 	- Debug output to show when using dumb terminal
