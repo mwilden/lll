@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "lll"
 
   s.files = [
-    "CHANGELOG",
+    "CHANGELOG.md",
     "README.md",
     "lib/lll.rb",
     "lib/lll/version.rb",
