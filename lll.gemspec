@@ -1,16 +1,19 @@
 # -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+require "lll/version"
 
 Gem::Specification.new do |s|
-  s.name = %q{lll}
-  s.version = "1.14.1"
+  s.name        = "lll"
+  s.version     = Lll::VERSION
+  s.authors     = ["Mark Wilden"]
+  s.email       = ["mark@mwilden.com"]
+  s.homepage    = %q{http://github.com/mwilden/lll}
+  s.summary     = %q{TODO: Write a gem summary}
+  s.summary     = %q{Output labeled data when debugging}
+  s.description = %q{Output labeled data when debugging}
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = [%q{Mark Wilden}]
-  s.date = %q{2012-03-04}
-  s.email = %q{mark@mwilden.com}
-  s.extra_rdoc_files = [
-    "README.md"
-  ]
+  s.rubyforge_project = "lll"
+
   s.files = [
     "CHANGELOG",
     "README.md",
@@ -18,8 +21,7 @@ Gem::Specification.new do |s|
     "lib/lll.rb",
     "lll.gemspec",
   ]
-  s.homepage = %q{http://github.com/mwilden/lll}
-  s.rubygems_version = %q{1.8.6}
-  s.summary = %q{Output labeled data when debugging}
-end
 
+  s.add_development_dependency "rake"
+  # s.add_runtime_dependency "rest-client"
+end

@@ -1,8 +1,5 @@
-instructions
-*.sw?
-.DS_Store
-coverage
-rdoc
-pkg
-how_to_build
+*.gem
+.bundle
 Gemfile.lock
+pkg/*
+how_to_build
