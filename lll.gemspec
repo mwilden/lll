@@ -10,15 +10,15 @@ Gem::Specification.new do |s|
   s.homepage    = %q{http://github.com/mwilden/lll}
   s.summary     = %q{TODO: Write a gem summary}
   s.summary     = %q{Output labeled data when debugging}
-  s.description = %q{Output labeled data when debugging}
+  s.description = %q{Use this to display variables and their values while debugging}
 
   s.rubyforge_project = "lll"
 
   s.files = [
     "CHANGELOG",
     "README.md",
-    "VERSION",
     "lib/lll.rb",
+    "lib/lll/version.rb",
     "lll.gemspec",
   ]
 
