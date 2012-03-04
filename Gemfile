@@ -1,4 +1,6 @@
 source :rubygems
 
-gem 'rake'
-gem 'jeweler'
+group :development do
+  gem 'rake'
+end
+
